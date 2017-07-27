@@ -116,7 +116,7 @@ end
 
 mobs:spawn({
 	name = mob_name,
-	nodes = {'default:dirt', 'default:dirt_with_grass'},
+	nodes = {'default:junglegrass'},
 	interval = interval,
 	chance = chance,
 	min_light = min_light,

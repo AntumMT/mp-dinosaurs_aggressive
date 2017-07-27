@@ -1,4 +1,7 @@
 
+# Used alternate "feathered" texture.
+mobs.velociraptor_feathered (Feathered velociraptor) bool false
+
 # Interval in seconds that specifies how often velociraptor spawns.
 mobs.velociraptor_interval (Velociraptor spawn interval) int 30 0
 

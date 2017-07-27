@@ -15,6 +15,11 @@ local mob_name = 'mobs:' .. modname
 
 -- MOBS REGISTRATION
 
+local texture = modname
+if core.settings:get_bool('mobs.velociraptor_feathered') then
+	texture = texture .. '_feathered'
+end
+
 mobs:register_mob(':' .. mob_name, {
 	type = 'monster',
 	reach = 1.5,
@@ -29,7 +34,7 @@ mobs:register_mob(':' .. mob_name, {
 	visual = 'mesh',
 	mesh = 'velociraptor.b3d',
 	textures = {
-		{'mobs_velociraptor.png'},
+		{'mobs_' .. texture .. '.png'},
 	},
 	blood_texture = 'mobs_blood.png',
 	visual_size = {x=1.5, y=1.5},

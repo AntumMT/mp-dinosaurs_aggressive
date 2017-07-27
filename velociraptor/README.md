@@ -6,6 +6,8 @@
 
 - Velociraptor extracted from *mobs_farlands* (part of *[farlands][]* sub-game).
 
+![Screenshot](screenshot.png)
+
 
 ---
 ### **Licensing**

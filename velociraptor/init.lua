@@ -76,7 +76,50 @@ mobs:register_mob(':' .. mob_name, {
 
 -- SPAWNING
 
---mobs:register_spawn('mobs:velociraptor', {'default:dirt_with_grass','default:dirt'}, 20, 10, 32000, 2, 31000)
+local interval = tonumber(core.settings:get('mobs.velociraptor_interval'))
+local chance = tonumber(core.settings:get('mobs.velociraptor_chance'))
+local min_light = tonumber(core.settings:get('mobs.velociraptor_min_light'))
+local max_light = tonumber(core.settings:get('mobs.velociraptor_max_light'))
+--local min_height = tonumber(core.settings:get('mobs.velociraptor_min_height'))
+local max_height = tonumber(core.settings:get('mobs.velociraptor_max_height'))
+local day_toggle = core.settings:get('mobs.velociraptor_spawn_time')
+
+if interval == nil then
+	interval = 30
+end
+if chance == nil then
+	chance = 32000
+end
+if min_light == nil then
+	min_light = 10
+end
+if max_light == nil then
+	max_light = 14
+end
+if max_height == nil then
+	max_height = 31000
+end
+if day_toggle ~= nil then
+	if day_toggle == 'day' then
+		day_toggle = true
+	elseif day_toggle == 'night' then
+		day_toggle = false
+	else
+		day_toggle = nil
+	end
+end
+
+mobs:spawn({
+	name = mob_name,
+	nodes = {'default:dirt', 'default:dirt_with_grass'},
+	interval = interval,
+	chance = chance,
+	min_light = min_light,
+	max_light = max_light,
+	max_height = max_height,
+	day_toggle = day_toggle,
+	active_object_count = 2,
+})
 
 mobs:register_egg(':' .. mob_name, 'Velociraptor', 'wool_orange.png', 1)
 
